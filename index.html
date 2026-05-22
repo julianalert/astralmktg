@@ -368,7 +368,7 @@
     <p class="hero-eyebrow stagger-2">Your chart knows you</p>
     <h1 class="hero-title stagger-3">The stars,<br><em>translated</em> for you</h1>
     <p class="hero-sub stagger-4">
-      A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart.
+      Understand why you feel stuck through the lens of your actual chart. Not a horoscope. Not a zodiac widget. A real conversation about your chart. 
     </p>
 
     <div class="hero-ctas stagger-5">
@@ -703,7 +703,7 @@
           <div class="pricing-saving is-hidden" id="pricingSaving">Save 45% · $4.90/month</div>
           <div class="pricing-divider"></div>
           
-          <div class="pricing-features" id="pricingFeaturesAnnual" hidden>
+          <div class="pricing-features">
             <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Daily transit briefing</div>
             <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Unlimited conversations</div>
             <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Unlimited relationship profiles</div>
@@ -901,8 +901,6 @@
       var opts = toggle.querySelectorAll('.pricing-toggle-opt');
       var priceEl = document.getElementById('pricingPrice');
       var savingEl = document.getElementById('pricingSaving');
-      var featsMonthly = document.getElementById('pricingFeaturesMonthly');
-      var featsAnnual = document.getElementById('pricingFeaturesAnnual');
       var plans = {
         monthly: { html: '<sup>$</sup>9<sub>/month</sub>', showSaving: false },
         annual:  { html: '<sup>$</sup>59<sub>/year</sub>', showSaving: true },
@@ -916,8 +914,6 @@
         });
         priceEl.innerHTML = plans[plan].html;
         savingEl.classList.toggle('is-hidden', !plans[plan].showSaving);
-        featsMonthly.hidden = plan !== 'monthly';
-        featsAnnual.hidden = plan !== 'annual';
       }
 
       opts.forEach(function (opt) {
