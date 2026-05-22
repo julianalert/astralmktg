@@ -243,16 +243,20 @@
     .cross { color:var(--muted2); font-size:16px; }
 
     /* ── PRICING ── */
-    .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:680px; margin:56px auto 0; text-align:left; }
+    .pricing-wrap { max-width:420px; margin:56px auto 0; text-align:left; }
+    .pricing-toggle { display:flex; align-items:center; background:var(--void); border:1px solid var(--border); border-radius:999px; padding:4px; margin-bottom:24px; }
+    .pricing-toggle-opt { flex:1; display:flex; align-items:center; justify-content:center; gap:8px; padding:10px 16px; border:none; background:transparent; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; border-radius:999px; cursor:pointer; transition:background 0.2s,color 0.2s; }
+    .pricing-toggle-opt:hover { color:var(--text); }
+    .pricing-toggle-opt.active { background:var(--card); color:var(--text); box-shadow:0 2px 12px rgba(0,0,0,0.25); }
+    .pricing-toggle-save { font-size:11px; font-weight:600; color:var(--gold); letter-spacing:0.04em; }
     .pricing-card { background:var(--card); border:1px solid var(--border); border-radius:var(--r3); padding:32px; position:relative; overflow:hidden; }
     .pricing-card.featured { border-color:rgba(201,168,76,0.3); background:linear-gradient(160deg,rgba(201,168,76,0.05),var(--card)); }
     .pricing-card.featured::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
-    .pricing-badge { position:absolute; top:18px; right:18px; background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#0d0f1a; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; letter-spacing:0.05em; }
-    .pricing-label { font-size:13px; color:var(--muted); margin-bottom:10px; letter-spacing:0.06em; text-transform:uppercase; }
     .pricing-price { font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; line-height:1; color:var(--text); margin-bottom:4px; }
     .pricing-price sup { font-size:22px; vertical-align:top; margin-top:10px; margin-right:2px; color:var(--muted); }
     .pricing-price sub { font-size:16px; font-family:'DM Sans',sans-serif; color:var(--muted); font-weight:400; }
-    .pricing-saving { font-size:13px; color:var(--gold); margin-bottom:24px; height:18px; }
+    .pricing-saving { font-size:13px; color:var(--gold); margin-bottom:24px; min-height:18px; }
+    .pricing-saving.is-hidden { visibility:hidden; }
     .pricing-divider { height:1px; background:var(--border); margin-bottom:24px; }
     .pricing-features { display:flex; flex-direction:column; gap:11px; margin-bottom:28px; }
     .pricing-feat { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--muted); }
@@ -298,7 +302,7 @@
       .how-step:nth-child(odd) { border-right:none; }
       .feature-row, .feature-row.flip { grid-template-columns:1fr; direction:ltr; }
       .testi-grid { grid-template-columns:1fr; }
-      .pricing-grid { grid-template-columns:1fr; max-width:400px; }
+      .pricing-wrap { max-width:100%; }
       .landing-footer { flex-direction:column; gap:16px; text-align:center; }
       .footer-links { flex-wrap:wrap; justify-content:center; }
       .landing-wrap, .landing-hero { padding-left:20px; padding-right:20px; }
@@ -330,8 +334,8 @@
     <a href="#pricing"  class="nav-drawer-item" onclick="closeMenu()">Pricing</a>
     <a href="#faq"      class="nav-drawer-item" onclick="closeMenu()">FAQ</a>
     <div class="nav-drawer-divider"></div>
-    <a href="/login"  class="nav-drawer-item" onclick="closeMenu()">Sign in</a>
-    <a href="/signup" class="nav-drawer-item" onclick="closeMenu()">Start free</a>
+    <a href="https://app.seraphova.com/login" target="_blank" rel="noopener noreferrer"  class="nav-drawer-item" onclick="closeMenu()">Sign in</a>
+    <a href="https://app.seraphova.com/signup" target="_blank" rel="noopener noreferrer" class="nav-drawer-item" onclick="closeMenu()">Start free</a>
   </div>
 
   <!-- Navigation -->
@@ -349,8 +353,8 @@
       <button type="button" class="landing-nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
         <span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
-      <a href="/login"  class="btn btn-ghost">Sign in</a>
-      <a href="/signup" class="btn btn-gold">Start free</a>
+      <a href="https://app.seraphova.com/login" target="_blank" rel="noopener noreferrer"  class="btn btn-ghost">Sign in</a>
+      <a href="https://app.seraphova.com/signup" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Start free</a>
     </div>
   </nav>
 
@@ -368,7 +372,7 @@
     </p>
 
     <div class="hero-ctas stagger-5">
-      <a href="/signup" class="btn btn-gold btn-xl">Get my personal chart</a>
+      <a href="https://app.seraphova.com/signup" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-xl">Get my personal chart</a>
       <a href="#how"    class="btn btn-outline btn-lg">See how it works</a>
     </div>
     <p class="hero-trust stagger-5">3 days free · no card</p>
@@ -686,35 +690,29 @@
       <h2 class="section-title">Start with <em>3 days free</em><br>No card required</h2>
       <p class="section-sub">Full access from day one. If it doesn't feel genuinely different from anything you've used, just stop — we don't need your card to find out.</p>
 
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-label">Monthly</div>
-          <div class="pricing-price"><sup>€</sup>9<sub>/month</sub></div>
-          <div class="pricing-saving">&nbsp;</div>
-          <div class="pricing-divider"></div>
-          <div class="pricing-features">
-            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Unlimited AI chat</div>
-            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Daily transit briefing</div>
-            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Up to 3 relationship profiles</div>
-            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Full conversation history</div>
-            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Memory layer</div>
-          </div>
-          <a href="/signup" class="btn btn-outline pricing-btn">Start free trial</a>
+      <div class="pricing-wrap">
+        <div class="pricing-toggle" id="pricingToggle" role="group" aria-label="Billing period">
+          <button type="button" class="pricing-toggle-opt active" data-plan="monthly" aria-pressed="true">Monthly</button>
+          <button type="button" class="pricing-toggle-opt" data-plan="annual" aria-pressed="false">
+            Annual
+            <span class="pricing-toggle-save">Save 45%</span>
+          </button>
         </div>
         <div class="pricing-card featured">
-          <div class="pricing-badge">Best value</div>
-          <div class="pricing-label">Annual</div>
-          <div class="pricing-price"><sup>€</sup>59<sub>/year</sub></div>
-          <div class="pricing-saving">Save 45% · €4.90/month</div>
+          <div class="pricing-price" id="pricingPrice"><sup>$</sup>9<sub>/month</sub></div>
+          <div class="pricing-saving is-hidden" id="pricingSaving">Save 45% · $4.90/month</div>
           <div class="pricing-divider"></div>
-          <div class="pricing-features">
-            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Everything in Monthly</div>
-            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Weekly deep-dive AI report</div>
+          
+          <div class="pricing-features" id="pricingFeaturesAnnual" hidden>
+            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Daily transit briefing</div>
+            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Unlimited conversations</div>
             <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Unlimited relationship profiles</div>
+            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Full conversation history</div>
+            <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Memory layer</div>
             <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Priority support</div>
             <div class="pricing-feat"><span class="pricing-feat-check">✦</span>Early access to new features</div>
           </div>
-          <a href="/signup" class="btn btn-gold pricing-btn">Start free trial →</a>
+          <a href="https://app.seraphova.com/signup" target="_blank" rel="noopener noreferrer" class="btn btn-gold pricing-btn">Start free trial →</a>
         </div>
       </div>
       <p class="trial-note"><strong>3 days free</strong> · No credit card · Cancel any time</p>
@@ -797,20 +795,20 @@
     <div class="pill">✦ 3 days free · no card required</div>
     <h2 class="cta-h2">Your chart has been<br><em>waiting to speak</em></h2>
     <p class="cta-p">Two minutes from now, you could be in a real conversation with your natal chart — about your life, right now.</p>
-    <a href="/signup" class="btn btn-gold btn-xl">Get my personal chart →</a>
+    <a href="https://app.seraphova.com/signup" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-xl">Get my personal chart →</a>
     <p class="cta-footnote">Join 1,000+ people already using Seraphova</p>
   </section>
 
   <!-- ── FOOTER ── -->
   <footer class="landing-footer">
     <div class="footer-logo">✦ SERAPHOVA</div>
-    <div class="footer-links">
+    <!-- <div class="footer-links">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
       <a href="#">Contact</a>
       <a href="#">Twitter</a>
       <a href="#">Instagram</a>
-    </div>
+    </div> -->
     <div class="footer-copy">© 2026 Seraphova. All rights reserved.</div>
   </footer>
 
@@ -895,6 +893,39 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menuOpen) { closeMenu(); }
     });
+
+    // ── Pricing toggle ──
+    (function () {
+      var toggle = document.getElementById('pricingToggle');
+      if (!toggle) return;
+      var opts = toggle.querySelectorAll('.pricing-toggle-opt');
+      var priceEl = document.getElementById('pricingPrice');
+      var savingEl = document.getElementById('pricingSaving');
+      var featsMonthly = document.getElementById('pricingFeaturesMonthly');
+      var featsAnnual = document.getElementById('pricingFeaturesAnnual');
+      var plans = {
+        monthly: { html: '<sup>$</sup>9<sub>/month</sub>', showSaving: false },
+        annual:  { html: '<sup>$</sup>59<sub>/year</sub>', showSaving: true },
+      };
+
+      function setPlan(plan) {
+        opts.forEach(function (opt) {
+          var active = opt.dataset.plan === plan;
+          opt.classList.toggle('active', active);
+          opt.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        priceEl.innerHTML = plans[plan].html;
+        savingEl.classList.toggle('is-hidden', !plans[plan].showSaving);
+        featsMonthly.hidden = plan !== 'monthly';
+        featsAnnual.hidden = plan !== 'annual';
+      }
+
+      opts.forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          setPlan(opt.dataset.plan);
+        });
+      });
+    })();
 
     // ── FAQ accordion ──
     (function () {
