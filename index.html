@@ -4,14 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seraphova — The stars, translated for you</title>
-  <meta name="description" content="An AI that knows your natal chart as well as you know yourself. Not generic horoscopes — real, personal insight in conversation." />
+  <meta name="description" content="A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart." />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://seraphova.com/" />
   <meta property="og:title"       content="Seraphova — The stars, translated for you" />
-  <meta property="og:description" content="An AI that knows your natal chart as well as you know yourself. Not generic horoscopes — real, personal insight in conversation." />
-  <meta property="og:image"       content="https://seraphova.com/og-image.png" />
+  <meta property="og:description" content="A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart." />
+  <meta property="og:image"              content="https://seraphova.com/og-image.png" />
+  <meta property="og:image:secure_url"  content="https://seraphova.com/og-image.png" />
+  <meta property="og:image:type"        content="image/png" />
+  <meta property="og:image:width"       content="3812" />
+  <meta property="og:image:height"      content="1836" />
+  <meta property="og:image:alt"         content="Seraphova — The stars, translated for you" />
   <meta property="og:site_name"   content="Seraphova" />
   <meta property="og:locale"      content="en_US" />
 
@@ -19,8 +24,9 @@
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:site"        content="@seraphova" />
   <meta name="twitter:title"       content="Seraphova — The stars, translated for you" />
-  <meta name="twitter:description" content="An AI that knows your natal chart as well as you know yourself. Not generic horoscopes — real, personal insight in conversation." />
+  <meta name="twitter:description" content="A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart." />
   <meta name="twitter:image"       content="https://seraphova.com/og-image.png" />
+  <meta name="twitter:image:alt"   content="Seraphova — The stars, translated for you" />
 
   <!-- Canonical & theme -->
   <link rel="canonical" href="https://seraphova.com/" />
@@ -133,12 +139,8 @@
     .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(52px,9vw,96px); font-weight:300; line-height:0.95; color:var(--text); margin-bottom:24px; letter-spacing:-0.01em; }
     .hero-title em { font-style:italic; color:var(--gold2); }
     .hero-sub { font-size:18px; color:var(--muted); max-width:460px; line-height:1.7; margin-bottom:40px; }
-    .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:52px; }
-    .hero-social-proof { display:flex; align-items:center; gap:16px; color:var(--muted2); font-size:13px; }
-    .hero-social-proof strong { color:var(--muted); font-weight:500; }
-    .avatars-stack { display:flex; }
-    .avatars-stack .av { width:30px; height:30px; border-radius:50%; border:2px solid var(--night); margin-left:-8px; display:flex; align-items:center; justify-content:center; font-size:14px; }
-    .avatars-stack .av:first-child { margin-left:0; }
+    .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+    .hero-trust { font-size:13px; color:var(--muted2); margin-top:16px; letter-spacing:0.02em; }
     .scroll-hint { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--muted2); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; animation:bob 2s ease-in-out infinite; }
     .scroll-hint-line { width:1px; height:40px; background:linear-gradient(to bottom,var(--gold-dim),transparent); }
 
@@ -362,23 +364,14 @@
     <p class="hero-eyebrow stagger-2">Your chart knows you</p>
     <h1 class="hero-title stagger-3">The stars,<br><em>translated</em> for you</h1>
     <p class="hero-sub stagger-4">
-      An AI that knows your natal chart as well as you know yourself. Not generic horoscopes — real, personal insight in conversation.
+      A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart.
     </p>
 
     <div class="hero-ctas stagger-5">
-      <a href="/signup" class="btn btn-gold btn-xl">Begin your reading</a>
+      <a href="/signup" class="btn btn-gold btn-xl">Get my personal chart</a>
       <a href="#how"    class="btn btn-outline btn-lg">See how it works</a>
     </div>
-
-    <div class="hero-social-proof stagger-5">
-      <div class="avatars-stack">
-        <div class="av" style="background:hsl(240,35%,28%)">🌙</div>
-        <div class="av" style="background:hsl(260,35%,28%)">⭐</div>
-        <div class="av" style="background:hsl(280,35%,28%)">✦</div>
-        <div class="av" style="background:hsl(300,35%,28%)">🌟</div>
-      </div>
-      <span><strong>2,400+ seekers</strong> in early access · 4.9 ★</span>
-    </div>
+    <p class="hero-trust stagger-5">3 days free · no card</p>
 
     <div class="scroll-hint">
       <div class="scroll-hint-line"></div>
@@ -392,8 +385,8 @@
   <section class="landing-section" id="how">
     <div class="landing-wrap center">
       <p class="section-label">How it works</p>
-      <h2 class="section-title">Three minutes to your<br><em>first real insight</em></h2>
-      <p class="section-sub">No lengthy setup. No generic content. Just your chart — and an AI that actually knows how to read it.</p>
+      <h2 class="section-title">Two minutes to your<br><em>first real insight</em></h2>
+      <p class="section-sub">No lengthy setup. No generic content. Just your chart and an AI that actually knows how to read it.</p>
     </div>
     <div class="landing-wrap">
       <div class="how-grid">
@@ -803,9 +796,9 @@
     <div class="cta-glow"></div>
     <div class="pill">✦ 3 days free · no card required</div>
     <h2 class="cta-h2">Your chart has been<br><em>waiting to speak</em></h2>
-    <p class="cta-p">Three minutes from now, you could be in a real conversation with your natal chart — about your life, right now.</p>
-    <a href="/signup" class="btn btn-gold btn-xl">Begin your reading →</a>
-    <p class="cta-footnote">Join 2,400+ people already using Seraphova in early access</p>
+    <p class="cta-p">Two minutes from now, you could be in a real conversation with your natal chart — about your life, right now.</p>
+    <a href="/signup" class="btn btn-gold btn-xl">Get my personal chart →</a>
+    <p class="cta-footnote">Join 1,000+ people already using Seraphova</p>
   </section>
 
   <!-- ── FOOTER ── -->
