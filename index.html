@@ -150,6 +150,34 @@
     .section-title em { font-style:italic; color:var(--gold2); }
     .section-sub { font-size:17px; color:var(--muted); max-width:520px; line-height:1.7; }
 
+    /* ── PROBLEM ── */
+    .problem-list { list-style:none; border-top:1px solid var(--border); margin-top:56px; }
+    .problem-item { position:relative; display:grid; grid-template-columns:minmax(9rem,15rem) 1fr; border-bottom:1px solid var(--border); }
+    .problem-item::before { content:''; position:absolute; top:0; bottom:0; left:0; width:2px; background:linear-gradient(to bottom,var(--gold),var(--gold2)); transform:scaleY(0); transform-origin:top; transition:transform 0.22s ease-out; pointer-events:none; }
+    .problem-item:hover::before { transform:scaleY(1); }
+    .problem-left { display:flex; flex-direction:column; justify-content:center; gap:6px; padding:32px 24px 32px 16px; border-right:1px solid var(--border); }
+    .problem-num { font-size:11px; font-weight:600; letter-spacing:0.2em; color:var(--muted2); transition:color 0.2s; }
+    .problem-item:hover .problem-num { color:var(--gold); }
+    .problem-label { font-size:15px; font-weight:500; color:var(--text); line-height:1.3; transition:color 0.2s; }
+    .problem-item:hover .problem-label { color:var(--gold2); }
+    .problem-right { display:flex; align-items:center; padding:32px 24px 32px 36px; }
+    .problem-right p { font-size:14px; line-height:1.8; color:var(--muted); }
+    .problem-right p strong { font-weight:600; color:var(--text); }
+    .problem-quote { border-radius:var(--r2); background:var(--card); border:1px solid var(--border); padding:28px 32px; position:relative; overflow:hidden; margin-top:48px; }
+    .problem-quote::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent); }
+    .problem-quote blockquote { font-family:'Cormorant Garamond',serif; font-size:clamp(18px,2.5vw,22px); font-weight:300; font-style:italic; line-height:1.65; color:var(--text); margin-bottom:20px; }
+    .problem-quote figcaption { display:flex; align-items:center; gap:12px; font-size:13px; color:var(--muted); }
+    .problem-quote-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; background:linear-gradient(135deg,rgba(123,111,160,0.3),rgba(201,168,76,0.15)); border:1px solid var(--border2); }
+    .problem-tagline { border-left:2px solid var(--gold-dim); padding-left:18px; margin-top:48px; }
+    .problem-tagline p { font-family:'Cormorant Garamond',serif; font-size:clamp(19px,2.5vw,24px); font-weight:300; font-style:italic; line-height:1.55; color:var(--text); }
+    .problem-tagline span { background:linear-gradient(135deg,var(--gold),var(--gold2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-style:normal; font-weight:400; }
+
+    @media (max-width:768px) {
+      .problem-item { grid-template-columns:1fr; }
+      .problem-left { border-right:none; border-bottom:1px solid var(--border); padding:24px 16px 20px; }
+      .problem-right { padding:20px 16px 24px; }
+    }
+
     /* ── HOW IT WORKS ── */
     .how-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:72px; }
     .how-step { padding:40px; position:relative; }
@@ -329,8 +357,9 @@
     <div class="nav-drawer-header">
       <div class="nav-drawer-logo"><span>✦</span> SERAPHOVA</div>
     </div>
+    <a href="#problem"  class="nav-drawer-item" onclick="closeMenu()">Problem</a>
+    <a href="#solution" class="nav-drawer-item" onclick="closeMenu()">Solution</a>
     <a href="#how"      class="nav-drawer-item" onclick="closeMenu()">How it works</a>
-    <a href="#features" class="nav-drawer-item" onclick="closeMenu()">Features</a>
     <a href="#pricing"  class="nav-drawer-item" onclick="closeMenu()">Pricing</a>
     <a href="#faq"      class="nav-drawer-item" onclick="closeMenu()">FAQ</a>
     <div class="nav-drawer-divider"></div>
@@ -344,8 +373,9 @@
       <span class="landing-nav-mark">✦</span> SERAPHOVA
     </a>
     <div class="landing-nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
       <a href="#how">How it works</a>
-      <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -385,51 +415,85 @@
 
   <div class="section-divider"></div>
 
-  <!-- ── HOW IT WORKS ── -->
-  <section class="landing-section" id="how">
-    <div class="landing-wrap center">
-      <p class="section-label">How it works</p>
-      <h2 class="section-title">Two minutes to your<br><em>first real insight</em></h2>
-      <p class="section-sub">No lengthy setup. No generic content. Just your chart and an AI that actually knows how to read it.</p>
-    </div>
+  <!-- ── THE PROBLEM ── -->
+  <section class="landing-section" id="problem">
     <div class="landing-wrap">
-      <div class="how-grid">
-        <div class="how-step">
-          <div class="how-num">01</div>
-          <div class="how-icon">🌍</div>
-          <div class="how-title">Enter your birth data</div>
-          <p class="how-desc">Date, time, and place. Seraphova computes your full natal chart: all planets, houses, and aspects — not just your sun sign.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-num">02</div>
-          <div class="how-icon">💬</div>
-          <div class="how-title">Tell it what you're navigating</div>
-          <p class="how-desc">Career inflection, a relationship dynamic, a sense of being stuck. Three questions that frame your first conversation with intention.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-num">03</div>
-          <div class="how-icon">✦</div>
-          <div class="how-title">Your chart comes alive</div>
-          <p class="how-desc">Seraphova opens with a message written for your specific placements and today's transits. Not a template. Your chart, right now.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-num">04</div>
-          <div class="how-icon">🧠</div>
-          <div class="how-title">It remembers as you go</div>
-          <p class="how-desc">Mention a job situation, a person, a recurring fear. Seraphova carries that context forward — building a picture of your life over time.</p>
-        </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:820px;">
+        <p class="section-label">The problem</p>
+        <h2 class="section-title" style="margin-bottom:0;">You open your astrology app.<br><em>It tells you Mercury is retrograde.</em></h2>
+        <p class="section-sub" style="max-width:540px;">Every astrology lover knows this feeling. Something shifts: a bad week, a big decision, a relationship that doesn't make sense anymore. You reach for your chart. The part nobody talks about is how little help you actually get.</p>
       </div>
+
+      <ol class="problem-list">
+
+        <li class="problem-item">
+          <div class="problem-left">
+            <span class="problem-num">01</span>
+            <span class="problem-label">Generic content</span>
+          </div>
+          <div class="problem-right">
+            <p>Your horoscope is written for every Scorpio on the planet. It has no idea you're going through a career change, a painful situationship, or the quietest year of your adult life. <strong>It reads the sign. Not the person.</strong></p>
+          </div>
+        </li>
+
+        <li class="problem-item">
+          <div class="problem-left">
+            <span class="problem-num">02</span>
+            <span class="problem-label">No chart depth</span>
+          </div>
+          <div class="problem-right">
+            <p>You know your sun, maybe your moon, maybe your rising. But your chart has ten planets, twelve houses, hundreds of aspects — the parts that actually explain your patterns. They sit there, unread. <strong>Nobody translates them for you.</strong></p>
+          </div>
+        </li>
+
+        <li class="problem-item">
+          <div class="problem-left">
+            <span class="problem-num">03</span>
+            <span class="problem-label">No way to ask why</span>
+          </div>
+          <div class="problem-right">
+            <p>Something feels off and you want to understand it through your chart. But the app serves static text. You can't ask a follow-up. You can't go deeper. <strong>The insight stops exactly where you needed it to continue.</strong></p>
+          </div>
+        </li>
+
+        <li class="problem-item">
+          <div class="problem-left">
+            <span class="problem-num">04</span>
+            <span class="problem-label">Starts from scratch every time</span>
+          </div>
+          <div class="problem-right">
+            <p>The app doesn't know you went through a breakup in March, or that you've been questioning your career for two years, or that a certain kind of situation always triggers the same fear in you. <strong>Every session. Zero context. Same content.</strong></p>
+          </div>
+        </li>
+
+      </ol>
+
+      <figure class="problem-quote">
+        <blockquote>
+          <p>"I've spent years reading everything about my chart — books, apps, YouTube. But I could never ask it a question. I just had to sit with the frustration of not fully understanding myself."</p>
+        </blockquote>
+        <figcaption>
+          <div class="problem-quote-avatar">✦</div>
+          <span>Zoe R. &nbsp;·&nbsp; Aquarius Sun · Scorpio Moon · Pisces Rising</span>
+        </figcaption>
+      </figure>
+
+      <div class="problem-tagline">
+        <p>There's another way to know yourself: <span>one that actually knows you back.</span></p>
+      </div>
+
     </div>
   </section>
 
   <div class="section-divider"></div>
 
-  <!-- ── FEATURES ── -->
-  <section class="landing-section" id="features">
+  <!-- ── SOLUTION ── -->
+  <section class="landing-section" id="solution">
     <div class="landing-wrap">
       <div class="center">
-        <p class="section-label">Features</p>
-        <h2 class="section-title">Everything your chart<br><em>deserves</em></h2>
+        <p class="section-label">The solution</p>
+        <h2 class="section-title">Everything your chart<br><em>actually needs</em></h2>
       </div>
 
       <div class="features-wrap">
@@ -581,6 +645,45 @@
             <div class="bd-pill"><div class="bd-pill-dot"></div>♄ Saturn in 10th</div>
             <div class="bd-pill"><div class="bd-pill-dot"></div>🌙 Moon → Taurus 4:22pm</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="landing-section" id="how">
+    <div class="landing-wrap center">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">Two minutes to your<br><em>first real insight</em></h2>
+      <p class="section-sub">No lengthy setup. No generic content. Just your chart and an AI that actually knows how to read it.</p>
+    </div>
+    <div class="landing-wrap">
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <div class="how-icon">🌍</div>
+          <div class="how-title">Enter your birth data</div>
+          <p class="how-desc">Date, time, and place. Seraphova computes your full natal chart: all planets, houses, and aspects — not just your sun sign.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <div class="how-icon">💬</div>
+          <div class="how-title">Tell it what you're navigating</div>
+          <p class="how-desc">Career inflection, a relationship dynamic, a sense of being stuck. Three questions that frame your first conversation with intention.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <div class="how-icon">✦</div>
+          <div class="how-title">Your chart comes alive</div>
+          <p class="how-desc">Seraphova opens with a message written for your specific placements and today's transits. Not a template. Your chart, right now.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">04</div>
+          <div class="how-icon">🧠</div>
+          <div class="how-title">It remembers as you go</div>
+          <p class="how-desc">Mention a job situation, a person, a recurring fear. Seraphova carries that context forward — building a picture of your life over time.</p>
         </div>
       </div>
     </div>
