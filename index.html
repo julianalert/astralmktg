@@ -96,7 +96,8 @@
     .btn-xl { padding:16px 40px; font-size:16px; border-radius:var(--r2); }
 
     /* ── LANDING NAV ── */
-    .landing-nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:64px; backdrop-filter:blur(24px); border-bottom:1px solid var(--border); transition:background 0.2s; background:rgba(8,9,15,0.75); }
+    .landing-nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:64px; backdrop-filter:blur(24px); border-bottom:1px solid var(--border); background:rgba(8,9,15,0.75); transform:translateY(-100%); opacity:0; pointer-events:none; transition:transform 0.35s cubic-bezier(.22,1,.36,1), opacity 0.35s cubic-bezier(.22,1,.36,1), background 0.2s; }
+    .landing-nav.visible { transform:translateY(0); opacity:1; pointer-events:auto; }
     .landing-nav.scrolled { background:rgba(8,9,15,0.92); }
     .landing-nav-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; letter-spacing:0.16em; color:var(--gold2); display:flex; align-items:center; gap:9px; text-decoration:none; }
     .landing-nav-mark { font-size:16px; opacity:0.8; }
@@ -167,7 +168,8 @@
     .problem-quote::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent); }
     .problem-quote blockquote { font-family:'Cormorant Garamond',serif; font-size:clamp(18px,2.5vw,22px); font-weight:300; font-style:italic; line-height:1.65; color:var(--text); margin-bottom:20px; }
     .problem-quote figcaption { display:flex; align-items:center; gap:12px; font-size:13px; color:var(--muted); }
-    .problem-quote-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; background:linear-gradient(135deg,rgba(123,111,160,0.3),rgba(201,168,76,0.15)); border:1px solid var(--border2); }
+    .problem-quote-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; background:linear-gradient(135deg,rgba(123,111,160,0.3),rgba(201,168,76,0.15)); border:1px solid var(--border2); overflow:hidden; }
+    .problem-quote-avatar img { width:100%; height:100%; object-fit:cover; }
     .problem-tagline { border-left:2px solid var(--gold-dim); padding-left:18px; margin-top:48px; }
     .problem-tagline p { font-family:'Cormorant Garamond',serif; font-size:clamp(19px,2.5vw,24px); font-weight:300; font-style:italic; line-height:1.55; color:var(--text); }
     .problem-tagline span { background:linear-gradient(135deg,var(--gold),var(--gold2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-style:normal; font-weight:400; }
@@ -403,7 +405,7 @@
 
     <div class="hero-ctas stagger-5">
       <a href="https://app.seraphova.com/signup" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-xl">Get my personal chart</a>
-      <a href="#how"    class="btn btn-outline btn-lg">See how it works</a>
+      <a href="#solution" class="btn btn-outline btn-lg">See how it works</a>
     </div>
     <p class="hero-trust stagger-5">3 days free · no card</p>
 
@@ -420,9 +422,9 @@
     <div class="landing-wrap">
 
       <div style="display:flex;flex-direction:column;gap:20px;max-width:820px;">
-        <p class="section-label">The problem</p>
-        <h2 class="section-title" style="margin-bottom:0;">You open your astrology app.<br><em>It tells you Mercury is retrograde.</em></h2>
-        <p class="section-sub" style="max-width:540px;">Every astrology lover knows this feeling. Something shifts: a bad week, a big decision, a relationship that doesn't make sense anymore. You reach for your chart. The part nobody talks about is how little help you actually get.</p>
+        <p class="section-label">Know this feeling?</p>
+        <h2 class="section-title" style="margin-bottom:0;">You open your astrology app.<br><em>It tells you Mercury is retrograde.</em> <span style="color:var(--text);font-style:normal;">And then what?</span></h2>
+        <p class="section-sub" style="max-width:720px;">Every astrology lover knows this feeling. Something shifts: a bad week, a big decision, a relationship that doesn't make sense anymore. You reach for your chart. And then you're alone with it.        </p>
       </div>
 
       <ol class="problem-list">
@@ -443,7 +445,7 @@
             <span class="problem-label">No chart depth</span>
           </div>
           <div class="problem-right">
-            <p>You know your sun, maybe your moon, maybe your rising. But your chart has ten planets, twelve houses, hundreds of aspects — the parts that actually explain your patterns. They sit there, unread. <strong>Nobody translates them for you.</strong></p>
+            <p>You know your sun, maybe your moon, maybe your rising. But your chart has ten planets, twelve houses, hundreds of aspects and most of it sits there, unread. <strong>Nobody translates them for you.</strong></p>
           </div>
         </li>
 
@@ -474,7 +476,7 @@
           <p>"I've spent years reading everything about my chart — books, apps, YouTube. But I could never ask it a question. I just had to sit with the frustration of not fully understanding myself."</p>
         </blockquote>
         <figcaption>
-          <div class="problem-quote-avatar">✦</div>
+          <div class="problem-quote-avatar"><img src="images/zoe.png" alt="Zoe R." /></div>
           <span>Zoe R. &nbsp;·&nbsp; Aquarius Sun · Scorpio Moon · Pisces Rising</span>
         </figcaption>
       </figure>
@@ -492,8 +494,9 @@
   <section class="landing-section" id="solution">
     <div class="landing-wrap">
       <div class="center">
-        <p class="section-label">The solution</p>
-        <h2 class="section-title">Everything your chart<br><em>actually needs</em></h2>
+        <p class="section-label">You're not like every other Scorpio</p>
+        <h2 class="section-title">The app that finally<br><em>gets your chart</em></h2>
+        <p class="section-sub">You've spent years reading horoscopes that almost fit. Seraphova reads your actual natal chart, all of it, and has a real conversation with you about your life, right now.</p>
       </div>
 
       <div class="features-wrap">
@@ -520,8 +523,8 @@
           </div>
           <div class="feature-copy">
             <p class="section-label">AI Chat</p>
-            <h3 class="feature-h3">Your chart,<br><em>in conversation</em></h3>
-            <p class="feature-p">Every response is grounded in your specific placements and today's live transits. Not a lookup table — genuine synthesis, in real-time.</p>
+            <h3 class="feature-h3">The answer to the question <br><em>you actually have</em></h3>
+            <p class="feature-p">Not <em>"what does Saturn in the 10th mean"</em>, but <em>"should I ask for that raise this week."</em> Every response is built from your chart and today's transits. Nothing generic. Nothing pre-written.            </p>
             <div class="feature-points">
               <div class="feature-point"><div class="fp-dot"></div>Full natal chart context on every message</div>
               <div class="feature-point"><div class="fp-dot"></div>Live transit awareness, updated daily</div>
@@ -568,8 +571,8 @@
           </div>
           <div class="feature-copy">
             <p class="section-label">Live Transits</p>
-            <h3 class="feature-h3">The sky <em>mapped<br>to your chart</em></h3>
-            <p class="feature-p">Transits calculated fresh every day — only the ones active for your specific placements. Not the collective Mercury retrograde. Yours.</p>
+            <h3 class="feature-h3">Finally understand <br><em>why this week feels different</em></h3>
+            <p class="feature-p">That low-grade pressure you've been carrying? It has a name and a timeline. Seraphova maps what's happening in the sky directly to your chart. Not the collective forecast. Yours.            </p>
             <div class="feature-points">
               <div class="feature-point"><div class="fp-dot"></div>Personalized orb calculation per transit type</div>
               <div class="feature-point"><div class="fp-dot"></div>Peak timing, duration, and intensity</div>
@@ -605,7 +608,7 @@
           <div class="feature-copy">
             <p class="section-label">Memory Layer</p>
             <h3 class="feature-h3">It remembers<br><em>your life</em></h3>
-            <p class="feature-p">Tell Seraphova what's happening — it carries that context forward, session after session. After months, it knows you the way a good therapist does.</p>
+            <p class="feature-p">Tell Seraphova what's happening — it carries that context forward, session after session. After weeks, it knows you the way a good therapist does.</p>
             <div class="feature-points">
               <div class="feature-point"><div class="fp-dot"></div>Extracts life events, relationships, and patterns automatically</div>
               <div class="feature-point"><div class="fp-dot"></div>Referenced naturally, never robotically</div>
@@ -689,9 +692,9 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS (hidden)
   <div class="section-divider"></div>
 
-  <!-- ── TESTIMONIALS ── -->
   <section class="landing-section">
     <div class="landing-wrap center">
       <p class="section-label">What people say</p>
@@ -736,6 +739,7 @@
       </div>
     </div>
   </section>
+  END TESTIMONIALS -->
 
   <div class="section-divider"></div>
 
@@ -798,12 +802,12 @@
           <button type="button" class="pricing-toggle-opt active" data-plan="monthly" aria-pressed="true">Monthly</button>
           <button type="button" class="pricing-toggle-opt" data-plan="annual" aria-pressed="false">
             Annual
-            <span class="pricing-toggle-save">Save 45%</span>
+            <span class="pricing-toggle-save">Save 39%</span>
           </button>
         </div>
         <div class="pricing-card featured">
-          <div class="pricing-price" id="pricingPrice"><sup>$</sup>9<sub>/month</sub></div>
-          <div class="pricing-saving is-hidden" id="pricingSaving">Save 45% · $4.90/month</div>
+          <div class="pricing-price" id="pricingPrice"><sup>$</sup>27<sub>/month</sub></div>
+          <div class="pricing-saving is-hidden" id="pricingSaving">Save 39% · $16.42/month</div>
           <div class="pricing-divider"></div>
           
           <div class="pricing-features">
@@ -954,9 +958,10 @@
       const nav = document.getElementById('landingNav');
       function onScroll() {
         if (window.scrollY > 20) {
-          nav.classList.add('scrolled');
+          nav.classList.add('visible', 'scrolled');
         } else {
-          nav.classList.remove('scrolled');
+          nav.classList.remove('visible', 'scrolled');
+          if (typeof menuOpen !== 'undefined' && menuOpen) closeMenu();
         }
       }
       onScroll();
@@ -1005,8 +1010,8 @@
       var priceEl = document.getElementById('pricingPrice');
       var savingEl = document.getElementById('pricingSaving');
       var plans = {
-        monthly: { html: '<sup>$</sup>9<sub>/month</sub>', showSaving: false },
-        annual:  { html: '<sup>$</sup>59<sub>/year</sub>', showSaving: true },
+        monthly: { html: '<sup>$</sup>27<sub>/month</sub>', showSaving: false },
+        annual:  { html: '<sup>$</sup>197<sub>/year</sub>', showSaving: true },
       };
 
       function setPlan(plan) {
