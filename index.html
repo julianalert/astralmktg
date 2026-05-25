@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seraphova — The stars, translated for you</title>
-  <meta name="description" content="A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart." />
+  <title>Seraphova — AI Astrology App for Your Natal Chart</title>
+  <meta name="description" content="Personalized natal chart conversations, not generic horoscopes. Ask your chart about career, relationships, and transits. 3 days free, no card." />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://www.seraphova.com/" />
-  <meta property="og:title"       content="Seraphova — The stars, translated for you" />
-  <meta property="og:description" content="A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart." />
+  <meta property="og:title"       content="Seraphova — AI Astrology App for Your Natal Chart" />
+  <meta property="og:description" content="Personalized natal chart conversations—not generic horoscopes. Ask your chart about career, relationships, and transits. 3 days free, no card." />
   <meta property="og:image"              content="https://www.seraphova.com/og-image.png" />
   <meta property="og:image:secure_url"  content="https://www.seraphova.com/og-image.png" />
   <meta property="og:image:type"        content="image/png" />
@@ -23,8 +23,8 @@
   <!-- Twitter / X Card -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:site"        content="@seraphova" />
-  <meta name="twitter:title"       content="Seraphova — The stars, translated for you" />
-  <meta name="twitter:description" content="A real conversation about your specific chart. Not a horoscope. Not a zodiac widget. Understand why you feel stuck through the lens of your actual chart." />
+  <meta name="twitter:title"       content="Seraphova — AI Astrology App for Your Natal Chart" />
+  <meta name="twitter:description" content="Personalized natal chart conversations—not generic horoscopes. Ask your chart about career, relationships, and transits. 3 days free, no card." />
   <meta name="twitter:image"       content="https://www.seraphova.com/og-image.png" />
   <meta name="twitter:image:alt"   content="Seraphova — The stars, translated for you" />
 
@@ -33,6 +33,92 @@
   <link rel="canonical" href="https://www.seraphova.com/" />
   <meta name="theme-color" content="#08090f" />
   <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.seraphova.com/#organization",
+        "name": "Seraphova",
+        "url": "https://www.seraphova.com/",
+        "logo": "https://www.seraphova.com/favicon.svg",
+        "sameAs": ["https://twitter.com/seraphova"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.seraphova.com/#software",
+        "name": "Seraphova",
+        "url": "https://www.seraphova.com/",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Web",
+        "description": "AI astrology app for personalized natal chart conversations, live transits, daily briefings, and relationship synastry.",
+        "offers": {
+          "@type": "Offer",
+          "price": "27",
+          "priceCurrency": "USD",
+          "description": "Monthly subscription with 3-day free trial, no credit card required"
+        },
+        "publisher": { "@id": "https://www.seraphova.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.seraphova.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need to know anything about astrology?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not at all. Seraphova explains everything in plain language, not astrological jargon. If you want to go deeper, it can explain any placement or transit in detail — but you never have to know what a \"sextile\" is to get value from it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I don't know my exact birth time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Seraphova works best with an exact time, but if you don't have it, use noon as a placeholder. Your sun, moon, and most planets will still be accurate — only your rising sign and house placements require a precise time. You can always update it later if you find your birth certificate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from Co-Star or the Pattern?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Those apps serve templated text content — the same paragraph for every Scorpio rising, forever. Seraphova uses AI to synthesize your chart with today's live transits and what you've personally shared about your life. Every response is generated fresh for you, not retrieved from a database of pre-written copy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What astrology system does Seraphova use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Western tropical astrology, Placidus house system. These are the most widely practiced in the West. Vedic (sidereal) astrology is on the roadmap for a future update."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to my birth data and conversations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your data is stored securely and never sold or shared with third parties. Conversations are used only to build your memory layer — the things Seraphova remembers about your life to give more relevant responses. You can delete any memory or your entire account at any time from settings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I cancel any time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. One click from your account settings. If you're on an annual plan and cancel in the first 14 days, you get a full refund — no questions asked."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
