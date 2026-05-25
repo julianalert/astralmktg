@@ -103,7 +103,7 @@
             "name": "What happens to my birth data and conversations?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Your data is stored securely and never sold or shared with third parties. Conversations are used only to build your memory layer — the things Seraphova remembers about your life to give more relevant responses. You can delete any memory or your entire account at any time from settings."
+              "text": "Your data is stored securely and never sold or shared with third parties. Conversations are used only to build your memory layer — the things Seraphova remembers about your life to give more relevant responses. You can delete any memory or your entire account at any time from settings. See our Privacy Policy at https://www.seraphova.com/privacy for full details."
             }
           },
           {
@@ -111,7 +111,7 @@
             "name": "Can I cancel any time?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. One click from your account settings. If you're on an annual plan and cancel in the first 14 days, you get a full refund — no questions asked."
+              "text": "Yes. One click from your account settings. If you're on an annual plan and cancel in the first 14 days, you get a full refund — no questions asked. See our Terms of Service at https://www.seraphova.com/terms for billing details."
             }
           }
         ]
@@ -392,6 +392,8 @@
     .faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease,padding 0.3s; }
     .faq-item.open .faq-a { max-height:300px; padding-bottom:20px; }
     .faq-a p { font-size:15px; color:var(--muted); line-height:1.75; }
+    .faq-a a { color:var(--gold2); text-decoration:none; }
+    .faq-a a:hover { text-decoration:underline; }
 
     /* ── CTA ── */
     .cta-section { padding:120px 32px; text-align:center; position:relative; z-index:1; }
@@ -403,8 +405,11 @@
     .pill { display:inline-flex; align-items:center; gap:6px; background:var(--gold-dim); border:1px solid rgba(201,168,76,0.2); border-radius:20px; padding:5px 14px; font-size:12px; color:var(--gold); margin-bottom:20px; position:relative; }
 
     /* ── FOOTER ── */
-    .landing-footer { border-top:1px solid var(--border); padding:40px; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1; }
-    .footer-logo { font-family:'Cormorant Garamond',serif; font-size:17px; letter-spacing:0.14em; color:var(--muted2); display:flex; align-items:center; gap:7px; }
+    .landing-footer { border-top:1px solid var(--border); padding:40px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; position:relative; z-index:1; gap:16px; }
+    .footer-logo { font-family:'Cormorant Garamond',serif; font-size:17px; letter-spacing:0.14em; color:var(--muted2); display:flex; align-items:center; gap:7px; justify-self:start; }
+    .footer-social { font-size:13px; color:var(--muted2); text-decoration:none; transition:color 0.2s; justify-self:center; }
+    .footer-social:hover { color:var(--muted); }
+    .footer-end { display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-self:end; }
     .footer-links { display:flex; gap:24px; }
     .footer-links a { font-size:13px; color:var(--muted2); text-decoration:none; transition:color 0.2s; }
     .footer-links a:hover { color:var(--muted); }
@@ -420,7 +425,9 @@
       .feature-row, .feature-row.flip { grid-template-columns:1fr; direction:ltr; }
       .testi-grid { grid-template-columns:1fr; }
       .pricing-wrap { max-width:100%; }
-      .landing-footer { flex-direction:column; gap:16px; text-align:center; }
+      .landing-footer { grid-template-columns:1fr; text-align:center; }
+      .footer-logo, .footer-social, .footer-end { justify-self:center; }
+      .footer-end { flex-direction:column; gap:12px; }
       .footer-links { flex-wrap:wrap; justify-content:center; }
       .landing-wrap, .landing-hero { padding-left:20px; padding-right:20px; }
       .comparison { overflow-x:auto; -webkit-overflow-scrolling:touch; }
@@ -965,7 +972,7 @@
             <span class="faq-toggle">+</span>
           </button>
           <div class="faq-a">
-            <p>Your data is stored securely and never sold or shared with third parties. Conversations are used only to build your memory layer — the things Seraphova remembers about your life to give more relevant responses. You can delete any memory or your entire account at any time from settings.</p>
+            <p>Your data is stored securely and never sold or shared with third parties. Conversations are used only to build your memory layer — the things Seraphova remembers about your life to give more relevant responses. You can delete any memory or your entire account at any time from settings. See our <a href="/privacy">Privacy Policy</a> for full details.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -974,7 +981,7 @@
             <span class="faq-toggle">+</span>
           </button>
           <div class="faq-a">
-            <p>Yes. One click from your account settings. If you're on an annual plan and cancel in the first 14 days, you get a full refund — no questions asked.</p>
+            <p>Yes. One click from your account settings. If you're on an annual plan and cancel in the first 14 days, you get a full refund — no questions asked. See our <a href="/terms">Terms of Service</a> for billing details.</p>
           </div>
         </div>
       </div>
@@ -996,14 +1003,14 @@
   <!-- ── FOOTER ── -->
   <footer class="landing-footer">
     <div class="footer-logo">✦ SERAPHOVA</div>
-    <!-- <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Contact</a>
-      <a href="#">Twitter</a>
-      <a href="#">Instagram</a>
-    </div> -->
-    <div class="footer-copy">© 2026 Seraphova. All rights reserved.</div>
+    <a href="https://www.tiktok.com/@seraphova" class="footer-social" target="_blank" rel="noopener noreferrer">TikTok</a>
+    <div class="footer-end">
+      <div class="footer-copy">© 2026 Seraphova. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
   </footer>
 
   <script>
